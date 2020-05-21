@@ -138,8 +138,21 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 CORS_ORIGIN_ALLOW_ALL = True
 
 django_heroku.settings(locals())
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+AWS_ACCESS_KEY_ID = 'AKIA46SJQGNSMCCU4PUR'
+    
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_QUERYSTRING_AUTH = False
+
+AWS_STORAGE_BUCKET_NAME = 'herokurestaurantbucket'
+
+AWS_S3_REGION_NAME = 'us-east-2' #change to your region
+AWS_S3_SIGNATURE_VERSION = 's3v4'
